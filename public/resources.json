@@ -1,0 +1,16 @@
+{
+    "AI & ML": [
+        {
+            "name": "Google Colab",
+            "desc": "Free T4 GPU for learning AI and ML",
+            "link": "https://colab.google.com"
+        }
+    ],
+    "Hosting / Deployment": [
+        {
+            "name": "Vercel",
+            "desc": "Hosts serverless frontend apps for free",
+            "link": "https://vercel.com"
+        }
+    ]
+}

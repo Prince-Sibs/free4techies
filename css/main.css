@@ -1,1 +1,120 @@
-/*# sourceMappingURL=main.css.map */
+:root {
+  --dark-bg: hsl(0, 0%, 4%);
+  --primary: hsl(124, 100%, 36%);
+  --secondary: hsl(124, 100%, 29%);
+  --primary-text: hsl(130, 100%, 85%);
+  --secondary-text: hsl(129, 100%, 18%);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  transition: all ease 0.2s;
+}
+
+a {
+  text-decoration: none;
+  line-height: 1.5;
+}
+
+a,
+button {
+  cursor: pointer;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--dark-bg);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  justify-items: center;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-bottom: 1.5rem;
+  padding-top: 1.5rem;
+  border-bottom: 0.15em solid var(--primary);
+}
+header .logo {
+  font-size: x-large;
+  color: var(--primary);
+  font-weight: bold;
+  line-height: 1;
+}
+header .nav-link {
+  color: var(--primary);
+  text-decoration: underline;
+}
+header .nav-link:hover {
+  color: var(--secondary);
+}
+
+.ads-card {
+  border: 0.05em solid var(--secondary-text);
+  margin: 1rem;
+  color: var(--primary-text);
+  border-radius: 0.5rem;
+  text-align: center;
+  padding-bottom: 0.4rem;
+  padding-top: 0.4rem;
+}
+
+main {
+  display: flex;
+  width: 100%;
+  border-top: 1px solid var(--secondary-text);
+  color: var(--primary-text);
+}
+main h1,
+main h2 {
+  text-decoration: underline;
+}
+main #main-content {
+  flex: 1;
+  width: 100%;
+  padding: 1rem;
+}
+@media (min-width: 1024px) {
+  main #main-content {
+    width: 80%;
+  }
+}
+main #main-content h3 {
+  margin-top: 1rem;
+  text-decoration: underline;
+}
+main #main-content ul {
+  padding-left: 2rem;
+}
+main #main-content ul a {
+  color: var(--primary);
+}
+main #main-content ul a:hover {
+  color: var(--secondary);
+}
+main #table-of-content {
+  width: 20%;
+  height: 100vh;
+  padding: 1em;
+  border-right: 1px solid var(--secondary-text);
+  position: sticky;
+}
+@media (max-width: 768px) {
+  main #table-of-content {
+    display: none;
+  }
+}
+main #table-of-content ol {
+  list-style: decimal;
+  padding-top: 1rem;
+  padding-left: 2rem;
+}
+main #table-of-content ol a {
+  color: var(--primary);
+}
+main #table-of-content ol a:hover {
+  color: var(--secondary-text);
+}/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,157 @@
+$mobile: 640px;
+$tablet: 768px;
+$desktop: 1024px;
+
+@mixin mobile {
+    @media (max-width: #{$mobile}) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (max-width: #{$tablet}) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: #{$desktop}) {
+        @content;
+    }
+}
+
+:root {
+    --dark-bg: hsl(0, 0%, 4%);
+    --primary: hsl(124, 100%, 36%);
+    --secondary: hsl(124, 100%, 29%);
+    --primary-text: hsl(130, 100%, 85%);
+    --secondary-text: hsl(129, 100%, 18%);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    transition: all ease 0.2s;
+}
+
+a {
+    text-decoration: none;
+    line-height: 1.5;
+}
+
+a,
+button {
+    cursor: pointer
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--dark-bg)
+}
+
+header {
+    display: flex;
+
+    justify-content: space-between;
+    justify-items: center;
+
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-bottom: 1.5rem;
+    padding-top: 1.5rem;
+
+    border-bottom: 0.15em solid var(--primary);
+
+    .logo {
+        font-size: x-large;
+        color: var(--primary);
+        font-weight: bold;
+        line-height: 1;
+    }
+
+    .nav-link {
+        color: var(--primary);
+        text-decoration: underline;
+
+        &:hover {
+            color: var(--secondary);
+        }
+    }
+}
+
+.ads-card {
+    border: 0.05em solid var(--secondary-text);
+    margin: 1rem;
+    color: var(--primary-text);
+    border-radius: 0.5rem;
+    text-align: center;
+    padding-bottom: 0.4rem;
+    padding-top: 0.4rem;
+}
+
+main {
+    display: flex;
+    width: 100%;
+    border-top: 1px solid var(--secondary-text);
+    color: var(--primary-text);
+    h1,
+    h2 {
+        text-decoration: underline;
+    }
+
+    #main-content {
+        flex: 1;
+        width: 100%;
+        padding: 1rem;
+        
+        @include desktop {
+            width: 80%
+        }
+
+        h3 {
+            margin-top: 1rem;
+            text-decoration: underline;
+        }
+
+        ul {
+            padding-left: 2rem;
+
+            a {
+                color: var(--primary);
+
+                &:hover {
+                    color: var(--secondary)
+                }
+            }
+        }
+
+    }
+
+    #table-of-content {
+        width: 20%;
+        height: 100vh;
+        padding: 1em;
+        border-right: 1px solid var(--secondary-text);
+        position: sticky;
+        
+
+        @include tablet {
+            display: none;
+        }
+
+        ol {
+            list-style: decimal;
+            padding-top: 1rem;
+            padding-left: 2rem;
+
+            a {
+                color: var(--primary);
+
+                &:hover {
+                    color: var(--secondary-text)
+                }
+            }
+        }
+    }
+}
