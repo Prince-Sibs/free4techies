@@ -2,39 +2,55 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>free4techies - All free resources in one place</title>
-    <meta name="description" content="Catalog for all free coding resources among all fields." />
-    <meta name="author" content="Prince Sibanda" />
-    <link rel="stylesheet" href="css/main.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>free4techies - All free resources in one place</title>
+  <meta name="description" content="Catalog for all free coding resources among all fields." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
 </head>
 
 <body>
-    <header>
-        <a href="/" class="logo">free4techies</a>
-        <a class="nav-link" href="/sponsor">Sponsor Me</a>
-        <a class="nav-link" rel="noopener" target="_blank"
-            href="https://github.com/sparkstech-inc/free4techies">Contribute</a>
-    </header>
-    <div class="ads-card">Ads Here</div>
+  <header>
+    <div class="header-left">
+      <a href="/" class="logo"><span class="logo-dot"></span> free4techies</a>
+      <div class="search-wrap">
+        <input id="search" placeholder="Search resources..." autocomplete="off" />
+        <span class="search-kbd"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="15" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M15 6v12a3 3 0 1 0 3-3H6a3 3 0 1 0 3 3V6a3 3 0 1 0-3 3h12a3 3 0 1 0-3-3" />
+          </svg></span>
+      </div>
+    </div>
+    <div class="header-right">
+      <a class="nav-link" href="/sponsor">Sponsor</a>
+      <a class="nav-link nav-link--primary" rel="noopener" target="_blank"
+        href="https://github.com/sparkstech-inc/free4techies">Contribute</a>
+    </div>
+  </header>
 
-    <main>
-        <div id="table-of-content">
-            <h2>Table of content</h2>
-            <ol id="table-of-content--main">
+  <div class="ads-card"><span>AD</span> Your ad here — 728x90</div>
 
-            </ol>
-        </div>
-        <div id="main-content">
-            <h1>Resources</h1>
-            <div id="resources">
-
-            </div>
-        </div>
-        
-    </main>
-    <script src="js/main.js" type="module"></script>
+  <main>
+    <div id="table-of-content">
+      <div class="toc-head">
+        <h2>Contents</h2>
+        <span id="toc-count"></span>
+      </div>
+      <ol id="table-of-content--main"></ol>
+    </div>
+    <div id="main-content">
+      <div class="hero">
+        <h1>Free resources for techies</h1>
+        <p>Curated list of free tiers, tools and APIs for builders. <span id="total-count"></span></p>
+      </div>
+      <div id="resources"></div>
+    </div>
+  </main>
+  <script src="js/main.js" type="module"></script>
 </body>
 
 </html>

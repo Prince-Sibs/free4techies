@@ -1,0 +1,24 @@
+name: Submerge resources.json
+
+on:
+  pull_request:
+    paths:
+      - "contribution/resources.json"
+
+jobs:
+merge:
+runs-on: ubuntu-latest
+steps:
+  - uses: action/checkout@v4
+
+  - name: Merge JSON into public/resources.json
+    run: |
+      node scripts/merge.js contribution/resources.json public/resources.json
+
+  - name: Commit
+    run: |
+      git config user.name "bot"
+      git config user.email "bot@bot.com"
+      git add public/resources.json
+      git commit -m "submerge resources"
+      git push
