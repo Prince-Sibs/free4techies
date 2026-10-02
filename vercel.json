@@ -1,1 +1,14 @@
-
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/sponsor",
+      "destination": "/sponsor/index.html"
+    },
+    {
+      "source": "/sponsor/",
+      "destination": "/sponsor/index.html"
+    }
+  ]
+}
