@@ -1,16 +1,121 @@
 {
-    "AI & ML": [
-        {
-            "name": "Google Colab",
-            "desc": "Free T4 GPU for learning AI and ML",
-            "link": "https://colab.google.com"
-        }
-    ],
-    "Hosting / Deployment": [
-        {
-            "name": "Vercel",
-            "desc": "Hosts serverless frontend apps for free",
-            "link": "https://vercel.com"
-        }
-    ]
+  "AI & ML": [
+    {
+      "name": "Google Colab",
+      "desc": "Free T4 GPU for learning AI and ML",
+      "link": "https://colab.google.com"
+    },
+    {
+      "name": "Hugging Face",
+      "desc": "Open-source ML models, datasets, and demos for free",
+      "link": "https://huggingface.co"
+    },
+    {
+      "name": "Kaggle",
+      "desc": "Free notebooks, datasets, and ML community challenges",
+      "link": "https://www.kaggle.com"
+    }
+  ],
+  "Development Tools": [
+    {
+      "name": "GitHub",
+      "desc": "Code hosting, collaboration, CI, and project management",
+      "link": "https://github.com"
+    },
+    {
+      "name": "Visual Studio Code",
+      "desc": "Lightweight, powerful editor with rich extension support",
+      "link": "https://code.visualstudio.com"
+    },
+    {
+      "name": "Postman",
+      "desc": "Free API testing, mocking, and collaboration tools",
+      "link": "https://www.postman.com"
+    },
+    {
+      "name": "GitLab",
+      "desc": "Dev platform with repos, CI/CD, and issue tracking",
+      "link": "https://about.gitlab.com"
+    }
+  ],
+  "Hosting / Deployment": [
+    {
+      "name": "Vercel",
+      "desc": "Hosts serverless frontend apps for free",
+      "link": "https://vercel.com"
+    },
+    {
+      "name": "Render",
+      "desc": "Free hosting for web apps, static sites, and databases",
+      "link": "https://render.com"
+    },
+    {
+      "name": "Netlify",
+      "desc": "Deploy static sites and JAMstack apps with free plans",
+      "link": "https://www.netlify.com"
+    }
+  ],
+  "Databases & Storage": [
+    {
+      "name": "Supabase",
+      "desc": "Open-source Firebase alternative with Postgres and auth",
+      "link": "https://supabase.com"
+    },
+    {
+      "name": "PlanetScale",
+      "desc": "Serverless MySQL database platform with free tier",
+      "link": "https://planetscale.com"
+    },
+    {
+      "name": "MongoDB Atlas",
+      "desc": "Free-tier cloud database for modern app development",
+      "link": "https://www.mongodb.com/cloud/atlas"
+    }
+  ],
+  "Design & UI": [
+    {
+      "name": "Figma",
+      "desc": "Collaborative design and prototyping for free",
+      "link": "https://www.figma.com"
+    },
+    {
+      "name": "Canva",
+      "desc": "Easy design tool for social graphics, pitch decks, and UI mockups",
+      "link": "https://www.canva.com"
+    }
+  ],
+  "Learning": [
+    {
+      "name": "freeCodeCamp",
+      "desc": "Free interactive courses and certification prep across tech topics",
+      "link": "https://www.freecodecamp.org"
+    },
+    {
+      "name": "MDN Web Docs",
+      "desc": "Comprehensive documentation for web technologies",
+      "link": "https://developer.mozilla.org"
+    },
+    {
+      "name": "The Odin Project",
+      "desc": "Full-stack web development curriculum without paid barriers",
+      "link": "https://www.theodinproject.com"
+    }
+  ],
+  "Productivity & Collaboration": [
+    {
+      "name": "Notion",
+      "desc": "Notes, docs, tasks, and team knowledge base for free",
+      "link": "https://www.notion.so"
+    },
+    {
+      "name": "Trello",
+      "desc": "Flexible Kanban boards for organizing work and ideas",
+      "link": "https://trello.com"
+    },
+    {
+      "name": "Slack",
+      "desc": "Team communication and collaboration with free access tiers",
+      "link": "https://slack.com"
+    }
+  ]
 }
