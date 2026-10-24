@@ -6,19 +6,36 @@ on:
       - "contribution/resources.json"
 
 jobs:
-merge:
-runs-on: ubuntu-latest
-steps:
-  - uses: action/checkout@v4
+  merge:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout PR branch
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
 
-  - name: Merge JSON into public/resources.json
-    run: |
-      node scripts/merge.js contribution/resources.json public/resources.json
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
 
-  - name: Commit
-    run: |
-      git config user.name "bot"
-      git config user.email "bot@bot.com"
-      git add public/resources.json
-      git commit -m "submerge resources"
-      git push
+      - name: Merge JSON into public/resources.json
+        run: |
+          node scripts/merge.js contribution/resources.json public/resources.json
+
+      - name: Commit back to PR
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add public/resources.json
+          # only commit if there are changes
+          if ! git diff --staged --quiet; then
+            git commit -m "submerge resources"
+            git push origin HEAD:${{ github.head_ref }}
+          else
+            echo "No changes to commit"
+          fi
