@@ -16,6 +16,11 @@
         "name": "Kaggle",
         "desc": "Free notebooks, datasets, and ML community challenges",
         "link": "https://www.kaggle.com"
+      },
+      {
+        "name": "Test AI Tool",
+        "desc": "This is a test resource to verify merge workflow",
+        "link": "https://example.com/test-ai-tool"
       }
     ]
   },
@@ -41,6 +46,11 @@
         "name": "GitLab",
         "desc": "Dev platform with repos, CI/CD, and issue tracking",
         "link": "https://about.gitlab.com"
+      },
+      {
+        "name": "Test Dev Tool",
+        "desc": "Another test for dev tools category",
+        "link": "https://example.com/test-dev-tool"
       }
     ]
   },
