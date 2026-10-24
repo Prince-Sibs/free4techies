@@ -2,7 +2,7 @@ import { setupSearch } from './search.js'
 import { setupActiveToc, copyLinkSetup } from './toc.js'
 let ALL = {}
 
-async function getResources() { return (await fetch('/public/resources.json')).json() }
+async function getResources() { return (await fetch(`/public/resources.json?v=${Date.now()}`)).json() }
 
 function listToc(res) {
     const entries = Object.entries(res);
