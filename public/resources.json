@@ -16,6 +16,11 @@
         "name": "Kaggle",
         "desc": "Free notebooks, datasets, and ML community challenges",
         "link": "https://www.kaggle.com"
+      },
+      {
+        "name": "test thing",
+        "desc": "short one",
+        "link": "https://example.com"
       }
     ]
   },
