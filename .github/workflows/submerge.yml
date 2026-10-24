@@ -1,33 +1,80 @@
-name: Submerge to Main
+name: Submerge resources to main
 
 on:
-  push:
-    branches: [main]
+  pull_request_target:
     paths:
       - "contribution/resources.json"
+    types: [opened, synchronize, reopened]
 
 jobs:
-  merge:
+  submerge:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      pull-requests: write
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout main branch
+        uses: actions/checkout@v4
         with:
           ref: main
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - uses: actions/setup-node@v4
+      - name: Checkout fork contribution file
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+          ref: ${{ github.event.pull_request.head.ref }}
+          path: fork
+          sparse-checkout: contribution/resources.json
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
           node-version: 20
 
-      - run: node scripts/merge.js contribution/resources.json public/resources.json
+      - name: Merge into public/resources.json
+        run: |
+          if [ ! -f "fork/contribution/resources.json" ]; then
+            echo "contribution/resources.json not found in fork"
+            exit 1
+          fi
+          node scripts/merge.js fork/contribution/resources.json public/resources.json
 
-      - run: |
+      - name: Commit to main
+        run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+          
           git add public/resources.json
-          # reset contribution file so next person doesn't conflict
-          echo '{}' > contribution/resources.json
-          git add contribution/resources.json
-          git diff --staged --quiet || (git commit -m "submerge resources to main" && git push)
+          
+          # Ensure contribution file is deleted from main
+          if [ -f "contribution/resources.json" ]; then
+            git rm -f contribution/resources.json || true
+          fi
+          rm -rf fork
+
+          if git diff --staged --quiet; then
+            echo "No changes to push"
+            exit 0
+          fi
+
+          git commit -m "submerge: resources from #${{ github.event.pull_request.number }}"
+          git push origin main
+
+      - name: Close PR
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: '✅ Merged into `public/resources.json` on main. Thanks for contributing!'
+            });
+            await github.rest.pulls.update({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.issue.number,
+              state: 'closed'
+            });
